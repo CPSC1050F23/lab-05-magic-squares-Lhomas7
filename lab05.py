@@ -21,7 +21,7 @@ while size <= 0:
     size = int(input())
 
 magic_number = (size / 2) * (size**2 + 1)
-print(f'The magic number for size {size} is {magic_number}.')
+print(f'The magic number for size {size} is {magic_number:.0f}.')
 
 print('Enter in the values separated by spaces: ')
 list1 = input()
