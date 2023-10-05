@@ -113,7 +113,8 @@ for i in range(size - 1, (0 - 1)):
     print()
 
 print('Diagonal 2 does not work! ')
-print('These are the values in diagonal 2: ', end = '')
-	
-print('This is a magic square!')
-print('This is not a magic square!')"""
+print('These are the values in diagonal 2: ', end = '')"""
+if count != size**2 or sum(row) != magic_number or sum != magic_number or sum_diag1 != magic_number or sum_diag2 != magic_number:
+    print('This is not a magic square!')
+else:
+    print('This is a magic square!')
