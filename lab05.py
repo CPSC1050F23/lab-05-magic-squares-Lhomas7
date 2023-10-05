@@ -103,13 +103,12 @@ if sum_diag1 != magic_number:
 """validate second diagonal"""
 diag2 = []
 sum_diag2 = 0
-num2 = size - 1
 for i in range(size):
     for j in range(size):
-        if j == num2:
+        if j == ((size - 1) - i):
             diag2.append(input_square[i][j])
             sum_diag2 += input_square[i][j]
-    num2 -= 1
+
 
 if sum_diag2 != magic_number:
     square_value = False
