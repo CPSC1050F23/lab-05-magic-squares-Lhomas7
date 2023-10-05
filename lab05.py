@@ -42,7 +42,7 @@ for i in range(size):
     for j in range(size):
         print(input_square[i][j], end='')
     print()
-
+square_value = True
 """determine if square has correct input"""
 count = 0
 for i in range(1, size**2 + 1):
@@ -51,31 +51,34 @@ for i in range(1, size**2 + 1):
         count += 1
 
 if count != size**2:
+    square_value = False
     print(f'The input cannot be a magic square! There must be one of each value from 1 to {size**2}.')
 """determine sums of rows and validate them"""
-num_row = 1
+num_row = 0
 for row in input_square:
     if sum(row) != magic_number:
+        square_value = False
         print(f'Row {num_row} does not work! These are the values in row {num_row}: ', end = '')
         for col in row:
-            print(col, end = '')
+            print(f'{col} ', end = '')
     num_row += 1
     print()
 
 """determine sums of columns and validate them"""
-col_num = 1
+col_num = 0
 sum = 0
 for x in range(size):
     column = []
     for i in range(size):
         for j in range(size):
-            if j == (col_num - 1):
+            if j == (col_num):
                 column.append(input_square[i][j])
                 sum += input_square[i][j]
     if sum != magic_number:
+        square_value = False
         print(f'Column {col_num} does not work! These are the values in column {col_num}: ', end = '')
         for y in range(size):
-            print(column[y], end ='')
+            print(f'{column[y]} ', end ='')
         print()
     col_num += 1
     sum = 0
@@ -90,31 +93,33 @@ for i in range(size):
 
 
 if sum_diag1 != magic_number:
+    square_value = False
     print('Diagonal 1 does not work! ')
     print('These are the values in diagonal 1: ', end = '')
     for i in range(size):
-        print(diag1[i], end = '')
+        print(f'{diag1[i]} ', end = '')
     print()
 
 """validate second diagonal"""
 diag2 = []
 sum_diag2 = 0
-for i in range(size - 1, (0 - 1)):
-    for j in range(size - 1, (0 - 1)):
-        if i == j:
+num2 = size - 1
+for i in range(size):
+    for j in range(size):
+        if j == num2:
             diag2.append(input_square[i][j])
             sum_diag2 += input_square[i][j]
+    num2 -= 1
 
-"""if sum_diag2 != magic_number:
+if sum_diag2 != magic_number:
+    square_value = False
     print('Diagonal 2 does not work! ')
     print('These are the values in diagonal 2: ', end = '')
     for i in range(size):
-        print(diag2[i], end = '')
+        print(f'{diag2[i]} ', end = '')
     print()
 
-print('Diagonal 2 does not work! ')
-print('These are the values in diagonal 2: ', end = '')"""
-if count != size**2 or sum(row) != magic_number or sum != magic_number or sum_diag1 != magic_number or sum_diag2 != magic_number:
-    print('This is not a magic square!')
-else:
+if square_value:
     print('This is a magic square!')
+else:
+    print('This is not a magic square!')
