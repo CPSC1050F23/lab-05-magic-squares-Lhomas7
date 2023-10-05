@@ -30,7 +30,7 @@ for i in list1.split():
     list_1.append(int(i))
 
 print('Your square:')
-"""declare square/2D list and place values into it"""
+"""create square/2D list and place values into it"""
 input_square = [[ '' for i in range(size)] for j in range(size)]
 num = 0
 for i in range(size):
@@ -117,7 +117,7 @@ if sum_diag2 != magic_number:
     for i in range(size):
         print(f'{diag2[i]} ', end = '')
     print()
-
+""" determine if square is magic or not"""
 if square_value:
     print('This is a magic square!')
 else:
